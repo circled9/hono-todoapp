@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build --mode client && vite build",
+    "check": "biome check . --apply",
     "deploy": "$npm_execpath run build && wrangler pages deploy ./dist",
     "dev": "vite",
     "preview": "wrangler pages dev ./dist"

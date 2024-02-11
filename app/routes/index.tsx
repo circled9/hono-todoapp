@@ -12,6 +12,9 @@ export default createRoute((c) => {
     <div class={className}>
       <h1>Hello, {name}!</h1>
       <Counter />
+      <p>
+        <a href="/todos">Todo App</a>
+      </p>
     </div>,
     { title: name },
   )

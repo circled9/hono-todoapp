@@ -10,6 +10,7 @@
     "preview": "wrangler pages dev ./dist"
   },
   "dependencies": {
+    "@hono/node-server": "^1.7.0",
     "hono": "^4.0.0",
     "honox": "^0.1.0"
   },

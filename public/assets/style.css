@@ -1,0 +1,17 @@
+body {
+  background-color: #eeeeee;
+  font-family: sans-serif;
+  height: 100dvh;
+  text-decoration-skip-ink: none;
+  width: 100dvw;
+}
+
+button:hover, input[type='checkbox']:hover, label:hover {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}

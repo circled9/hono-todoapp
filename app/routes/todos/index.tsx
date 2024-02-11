@@ -1,5 +1,8 @@
 import { createRoute } from 'honox/factory'
-import TodoItem from '../../islands/TodoItem'
+import { TodoAppOuter } from '../../components/TodoAppOuter'
+import { TodoCreateForm } from '../../components/TodoCreateForm'
+import { TodoItem } from '../../components/TodoItem'
+import { TodoListOuter } from '../../components/TodoListOuter'
 import TodoService from '../../services/TodoService'
 
 type CreateAction = {
@@ -27,24 +30,20 @@ export const POST = createRoute(async (c) => {
 export default createRoute((c) => {
   const todos = TodoService.listTodos()
   return c.render(
-    <div>
-      <form action="/todos" method="POST">
-        <div>
-          <input name="_action" type="hidden" value="create" />
-          <input name="text" type="text" />
-        </div>
-        <div>
-          <button type="submit">Create</button>
-        </div>
+    <TodoAppOuter>
+      <form method="POST" action="/todos">
+        <TodoCreateForm />
       </form>
-      <ul>
-        {todos.map((todo) => (
-          <li>
-            <TodoItem checked={todo.checked} id={todo.id} text={todo.text} />
-          </li>
-        ))}
-      </ul>
-    </div>,
+      <TodoListOuter>
+        <ul>
+          {todos.map((todo) => (
+            <li>
+              <TodoItem checked={todo.checked} id={todo.id} text={todo.text} />
+            </li>
+          ))}
+        </ul>
+      </TodoListOuter>
+    </TodoAppOuter>,
     { title: 'Todo App' },
   )
 })
